@@ -180,7 +180,7 @@
         // Submit Successfully Or Not Successfully
         let passwords = document.getElementById("password").value;
         let confirmpasswords = document.getElementById("confirm_password").value;
-        if (fname.value == "" || lname.value == "" || email.value == '' || (male.checked && female.checked) || passwords.value == '' || confirmpasswords != passwords) {
+        if (fname.value == "" || lname.value == "" || email.value == '' || (male.checked && female.checked) || passwords.value == '' || confirmpasswords == '' || confirmpasswords != passwords) {
             confirm("Not Submit Successfully");
         }
         else {
