@@ -130,7 +130,7 @@
                 document.getElementById("errpassword").innerText = "";
             }
             else {
-                document.getElementById("errpassword").innerText = "*Password must be required 6 digit";
+                document.getElementById("errpassword").innerText = "*Password must be required 4 digit";
                 document.getElementById("errpassword").style.color = "red";
             }
         }
@@ -168,7 +168,6 @@
         let hobbis = document.querySelectorAll(".hobi");
         let hobiarray = [];
         let i = 0;
-        // console.log(hobi);
         hobbis.forEach((hobi) => {
             if (hobi.checked) {
                 console.log("Success");
@@ -177,6 +176,16 @@
             }
         });
         console.log(hobiarray);
+
+        // Submit Successfully Or Not Successfully
+        let passwords = document.getElementById("password").value;
+        let confirmpasswords = document.getElementById("confirm_password").value;
+        if (fname.value == "" || lname.value == "" || email.value == '' || (male.checked && female.checked) || passwords.value == '' || confirmpasswords != passwords) {
+            confirm("Not Submit Successfully");
+        }
+        else {
+            confirm("Submit Successfully");
+        }
     }
 </script>
 <script src="js/jquery.js"></script>
