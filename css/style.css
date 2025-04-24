@@ -1,0 +1,56 @@
+form {
+    border: 1px solid black;
+    transition: all ease-in .3s;
+}
+
+form:hover {
+    box-shadow: 0px 0px 6px 0px gray;
+}
+
+.img_box {
+    height: 13rem;
+}
+
+img {
+    width: 14rem;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+
+.form_ul {
+    background-color: bisque;
+}
+
+.form_ul li {
+    list-style: none;
+}
+
+.form_ul input {
+    height: 2rem;
+}
+
+input::placeholder {
+    font-size: .8rem;
+    font-family: "Winky Rough", sans-serif;
+    color: rgb(180, 180, 180);
+}
+
+span {
+    font-size: .7rem;
+}
+
+#submit {
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid black;
+    transition: all ease-in-out .4s;
+}
+
+#submit:hover {
+    color: #ffffff;
+    background-color: black;
+}
+
+.font {
+    font-family: "Winky Rough", sans-serif;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Londrina+Solid:wght@100;300;400;900&family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playwrite+AU+SA:wght@100..400&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <form action="#" class="mt-4 d-flex flex-column align-items-center rounded-5">
+            <div class="img_box d-flex justify-content-center align-items-center">
+                <img src="/img/man-profile-cartoon_18591-58482.avif" alt="">
+            </div>
+            <ul class="form_ul py-4 px-3 my-0 d-flex flex-column align-content-between row-gap-4">
+                <li class="d-flex justify-content-between col-12 flex-wrap flex-sm-nowrap">
+                    <div class="fname d-flex flex-column col-8 col-sm-5">
+                        <label for="fname" class="font">First Name : </label>
+                        <input type="text" id="fname" placeholder="Enter First Name" class="col mt-1">
+                        <span id="errfname"></span>
+                    </div>
+                    <div class="lname d-flex flex-column col-8 col-sm-5">
+                        <label for="lname" class="font">Last Name : </label>
+                        <input type="text" id="lname" placeholder="Enter Last Name" class="col mt-1">
+                        <span id="errlname"></span>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between col-12 flex-wrap flex-sm-nowrap">
+                    <div class="email d-flex flex-column col-8 col-sm-5">
+                        <label for="email" class="font">Email : </label>
+                        <input type="email" id="email" placeholder="Enter Email" class="col mt-1">
+                        <span id="erremail"></span>
+                    </div>
+                    <div class="gender d-flex flex-column col-8 col-sm-5 align-items-start">
+                        <label for="gender" class="font">Gender : </label>
+                        <div class="d-flex align-items-center mt-1">
+                            <input type="radio" id="male" name="gender" class="ms-3 me-2">Male
+                            <input type="radio" id="female" name="gender" class="ms-2 me-2">Female
+                        </div>
+                        <span id="errgender"></span>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between col-12 flex-wrap flex-sm-nowrap">
+                    <div class="password d-flex flex-column col-8 col-sm-5">
+                        <label for="password" class="font">Password : </label>
+                        <input type="password" id="password" placeholder="Enter Password" class="col mt-1">
+                        <span id="errpassword"></span>
+                    </div>
+                    <div class="confirm_password d-flex flex-column col-8 col-sm-5">
+                        <label for="confirm_password" class="font">Confirm Password : </label>
+                        <input type="password" id="confirm_password" placeholder="Enter Confirm Password"
+                            class="col mt-1">
+                        <span id="errconfirm_password"></span>
+                    </div>
+                </li>
+                <li
+                    class="d-flex align-items-sm-center justify-content-center col-12 flex-column flex-sm-row row-gap-2">
+                    <label for="hobi" class="font">Hobbies : </label>
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="hobi ms-0 me-2 ms-sm-2 me-sm-1" value="cricket"
+                            name="hobi[]">Cricket
+                        <input type="checkbox" class="hobi ms-2 me-2 me-sm-1" value="football" name="hobi[]">Football
+                        <input type="checkbox" class="hobi ms-2 me-2 me-sm-1" value="basketball"
+                            name="hobi[]">Basketball
+                        <input type="checkbox" class="hobi ms-2 me-2 me-sm-1" value="hockey" name="hobi[]">Hockey
+                    </div>
+                </li>
+            </ul>
+            <input type="submit" id="submit" value="Submit" onclick="onfunc()" class="rounded-2 py-2 px-4 my-3">
+        </form>
+    </div>
+</body>
+<script>
+    fname = document.getElementById("fname");
+    function onfunc() {
+        //  First Name Part
+        if (fname.value == "") {
+            document.getElementById("errfname").innerText = "*First Name Must be required.";
+            document.getElementById("errfname").style.color = "red";
+        }
+        else {
+            document.getElementById("errfname").innerText = "";
+        }
+
+        // Last Name Part
+        if (lname.value == "") {
+            document.getElementById("errlname").innerText = "*Last Name Must be required.";
+            document.getElementById("errlname").style.color = "red";
+        }
+        else {
+            document.getElementById("errlname").innerText = "";
+        }
+
+        // Email Part
+        if (email.value == '') {
+            document.getElementById("erremail").innerText = "*Email must be required";
+            document.getElementById("erremail").style.color = "red";
+        }
+        else {
+            let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+            if (!regex.test(email.value)) {
+                document.getElementById("erremail").innerText = "*Invalid mail id.";
+                document.getElementById("erremail").style.color = "red";
+            } else {
+                document.getElementById("erremail").innerText = "";
+            }
+        }
+
+        // Password Part
+        if (password.value == '') {
+            document.getElementById("errpassword").innerText = "*Password must be required";
+            document.getElementById("errpassword").style.color = "red";
+        }
+        else {
+            let password = document.getElementById("password").value;
+            if (password.length >= 4) {
+                document.getElementById("errpassword").innerText = "";
+            }
+            else {
+                document.getElementById("errpassword").innerText = "*Password must be required 6 digit";
+                document.getElementById("errpassword").style.color = "red";
+            }
+        }
+        // Confirm Password Part
+        if (confirm_password.value == '') {
+            document.getElementById("errconfirm_password").innerText = "*Confirm Password must be required";
+            document.getElementById("errconfirm_password").style.color = "red";
+        }
+        else {
+            let password = document.getElementById("password").value;
+            let confirmpassword = document.getElementById("confirm_password").value;
+            if (confirmpassword == password) {
+                document.getElementById("errconfirm_password").innerText = "Password Confirm";
+                document.getElementById("errconfirm_password").style.color = "green";
+            }
+            else {
+                document.getElementById("errconfirm_password").innerText = "*Password is Not Confirm";
+                document.getElementById("errconfirm_password").style.color = "red";
+            }
+        }
+
+        // Gender Part
+        if (male.checked) {
+            document.getElementById("errgender").innerText = "";
+        }
+        else if (female.checked) {
+            document.getElementById("errgender").innerText = "";
+        }
+        else {
+            document.getElementById("errgender").innerText = "Gender is required";
+            document.getElementById("errgender").style.color = "red";
+        }
+
+        // Hobbies Part
+        let hobbis = document.querySelectorAll(".hobi");
+        let hobiarray = [];
+        let i = 0;
+        // console.log(hobi);
+        hobbis.forEach((hobi) => {
+            if (hobi.checked) {
+                console.log("Success");
+                hobiarray[i] = hobi.value;
+                i++;
+            }
+        });
+        console.log(hobiarray);
+    }
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</html>
