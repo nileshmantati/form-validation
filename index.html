@@ -181,10 +181,10 @@
         let passwords = document.getElementById("password").value;
         let confirmpasswords = document.getElementById("confirm_password").value;
         if (fname.value == "" || lname.value == "" || email.value == '' || (male.checked && female.checked) || passwords.value == '' || confirmpasswords == '' || confirmpasswords != passwords) {
-            confirm("Not Submit Successfully");
+            alert("Not Submit Successfully");
         }
         else {
-            confirm("Submit Successfully");
+            alert("Submit Successfully");
         }
     }
 </script>
